@@ -1,0 +1,170 @@
+{% extends 'ticketapp/base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<div class="main_content_iner overly_inner ">
+<div class="container-fluid p-0 ">
+
+<div class="row">
+<div class="col-12">
+<div class="page_title_box d-flex align-items-center justify-content-between">
+<div class="page_title_left">
+<h3 class="f_s_30 f_w_700 text_white">Product Details</h3>
+<ol class="breadcrumb page_bradcam mb-0">
+<li class="breadcrumb-item"><a href="{% url 'index' %}">Dashboard</a></li>
+<li class="breadcrumb-item"><a href="{% url 'ticket_list' %}">New Tickets </a></li>
+
+<li class="breadcrumb-item active">Product Details</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-12">
+<div class="white_card position-relative mb_20">
+<div class="card-body">
+<div class="row">
+<div class="col-lg-6 align-self-center">
+    <img src="{{ ticket.front_image.url }}" alt="Front Image" class="mx-auto d-block sm_w_100" height="300" />
+    </div>
+
+<div class="col-lg-6 align-self-center">
+    <div class="single-pro-detail">
+        <p class="mb-1" style="font-size: 24px; font-weight: bold; color: #333;">{{ ticket.ticket_id }}</p>
+<div class="custom-border mb-3" style="border-bottom: 2px solid #333;"></div>
+<h3 class="pro-title" style="font-size: 28px; color: #333;">{{ ticket.product_name }}</h3>
+<div class="row">
+    <div class="col-md-4">
+        <p style="font-size: 18px; color: #333;">Variant No:</p>
+        <p style="font-size: 18px; color: #FFA500;">{{ ticket.variant_no }}</p>
+        <br>
+        <p style="font-size: 18px; color: #333;">Problem Category:</p>
+        <p style="font-size: 18px; color: #FFA500;">{{ ticket.problem_category }}</p>
+    </div>
+
+    <div class="col-md-4">
+        <p style="font-size: 18px; color: #333;">Date of Purchase:</p>
+        <p style="font-size: 18px; color: #FFA500;">{{ ticket.date_of_purchase }}</p>
+<br>
+        <p style="font-size: 18px; color: #333;">New Ticket ID:</p>
+        <p style="font-size: 18px; color: #FFA500;">{{ ticket.new_ticket_id }}</p>
+    </div>
+
+    <div class="col-md-4">
+        <!-- Display other fields as needed -->
+        <!-- Example: -->
+        <p style="font-size: 18px; color: #333;">Status:</p>
+        <p style="font-size: 18px; color: #FFA500;">{{ ticket.get_status_display }}</p>
+    </div>
+</div>
+
+
+        <!-- Add more fields as needed -->
+
+        <div class="quantity mt-3">
+            <!-- Additional content if needed -->
+        </div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="row">
+<div class="col-md-12">
+<div class="white_card position-relative mb_20">
+<div class="card-body">
+<h5 class="mt-0" style="font-size: 22px;">Problem Description</h5>
+<p style="font-size: 18px; color: #060400;"> {{ ticket.problem_description }}</p>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-3">
+<div class="white_card position-relative mb_20 ">
+<div class="card-body">
+<div class="ribbon1 rib1-primary"><span class="text-white text-center rib1-primary">Front Image</span></div>
+<img src="{{ ticket.front_image.url }}" alt class="d-block mx-auto my-4" height="150">
+
+</div>
+
+</div>
+</div>
+<div class="col-md-3">
+<div class="white_card position-relative mb_20 ">
+<div class="card-body">
+<div class="ribbon1 rib1-primary"><span class="text-white text-center rib1-primary">Back Image</span></div>
+<img src="{{ ticket.back_image.url }}" alt class="d-block mx-auto my-4" height="150">
+
+</div>
+
+</div>
+</div>
+<div class="col-md-3">
+<div class="white_card position-relative mb_20 ">
+<div class="card-body">
+<div class="ribbon1 rib1-primary"><span class="text-white text-center rib1-primary">Invoice copy</span></div>
+<img src="{{ ticket.invoice_copy.url }}" alt class="d-block mx-auto my-4" height="150">
+
+
+</div>
+
+</div>
+</div>
+<div class="col-md-3">
+    <div class="white_card position-relative mb_20">
+        <div class="card-body">
+            <div class="ribbon1 rib1-primary">
+                <span class="text-white text-center rib1-primary">Video of the issue</span>
+            </div>
+            
+            <!-- Use the video tag to embed the video with autoplay and muted -->
+            <video controls autoplay muted class="d-block mx-auto my-4" height="150">
+                <!-- Provide the video source using the URL of the video file -->
+                <source src="{{ ticket.issue_voice.url }}" type="video/mp4">
+                <!-- You can add additional source elements for different video formats -->
+                <!-- <source src="path_to_other_video_format" type="video/other_format"> -->
+                Your browser does not support the video tag.
+            </video>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="mt-3 d-flex justify-content-end">
+    <a href="#" class="btn btn-success btn-lg">Accept</a>
+    <a href="{% url 'ticket_list' %}" class="btn btn-danger btn-lg ms-2">Decline</a>
+</div>
+
+
+
+</div>
+</div>
+</div>
+
+<div class="footer_part">
+<div class="container-fluid">
+<div class="row">
+<div class="col-lg-12">
+<div class="footer_iner text-center">
+    <p>2023 © Designed & Developed by <i class="ti-heart"></i> <a href="https://pinesphere.com/" target="_blank"> Pinesphere Solutions</a></p>
+    
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+{% endblock %}
